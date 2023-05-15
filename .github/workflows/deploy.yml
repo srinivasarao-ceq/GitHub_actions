@@ -13,7 +13,7 @@ env:
   GITHUB_SESSION: CEQ-bootcamp
 
 jobs:
-  Docker_build_and_push:
+  ENV_SESSION:
     runs-on: ubuntu-latest
     steps:
       - name: Output Run Number
@@ -32,7 +32,10 @@ jobs:
           AWS_ACCESS_KEY: AKIAZ3CUIHQKATDFEJU2
           AWS_SECRET_ACCESS_KEY: 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
           AWS_REGION: eu-central-1
-       
+    
+  Print_ENV:
+    runs-on: ubuntu-latest
+    steps:   
       - name: To print the env values
         run: echo ${{ env.GITHUB_SESSION}}
          
