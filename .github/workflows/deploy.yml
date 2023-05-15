@@ -7,9 +7,7 @@ on:
 #       - "README.md"
   workflow_dispatch:
 env:
-#   AWS_ACCESS_KEY: AKIAZ3CUIHQKATDFEJU2
-#   AWS_SECRET_ACCESS_KEY: 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
-#   AWS_REGION: eu-central-1
+  AWS_REGION: eu-central-1
   GITHUB_SESSION: CEQ-bootcamp
 
 jobs:
@@ -25,13 +23,10 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-         aws-access-key-id: ${{ env.AWS_ACCESS_KEY }}
-         aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          aws-region: ${{ env.AWS_REGION}}
-        env:
-          AWS_ACCESS_KEY: AKIAZ3CUIHQKATDFEJU2
-          AWS_SECRET_ACCESS_KEY: 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
-          AWS_REGION: eu-central-1
+  
     
   Print_ENV:
     runs-on: ubuntu-latest
