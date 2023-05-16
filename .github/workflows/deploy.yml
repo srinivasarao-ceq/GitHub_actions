@@ -1,10 +1,10 @@
 name: github with env
 on:
-#   push:
-#     branches:
-#       - "main"
-#     paths-ignore:
-#       - "README.md"
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "README.md"
   workflow_dispatch:
 env:
   AWS_REGION: eu-central-1
@@ -20,15 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         aws-region: ${{ env.AWS_REGION}}
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+      #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #    aws-region: ${{ env.AWS_REGION}}
 
       - name: To print the env values
-        run: echo "First is running fine"
+        run: echo "First JOb is running fine"
          
     
   Print_ENV:
