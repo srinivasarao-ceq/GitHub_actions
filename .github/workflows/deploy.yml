@@ -11,7 +11,7 @@ env:
   GITHUB_SESSION: CEQ-bootcamp
 
 jobs:
-  ENV_SESSION:
+  GitHub_SESSION:
     runs-on: ubuntu-latest
     steps:
       - name: Output Run Number
@@ -26,10 +26,14 @@ jobs:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          aws-region: ${{ env.AWS_REGION}}
-  
+
+      - name: To print the env values
+        run: echo "First is running fine"
+         
     
   Print_ENV:
     runs-on: ubuntu-latest
+    needs: ['GitHub_SESSION']
     steps:   
       - name: To print the env values
         run: echo ${{ env.GITHUB_SESSION}}
